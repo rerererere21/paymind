@@ -1,10 +1,20 @@
 'use client';
 
+import { useEffect } from "react"
+import { supabase } from "@/lib/supabaseClient"
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, TrendingDown, Bell, BarChart2, Shield, CheckCircle, Star } from 'lucide-react';
 
 export default function LandingPage() {
+  const fetchData = async () => {
+  const { data, error } = await supabase.from('bills').select('*')
+  console.log(data)
+  console.log(error)
+}
+useEffect(() => {
+  fetchData()
+}, [])
   return (
     <div className="min-h-screen bg-background">
 

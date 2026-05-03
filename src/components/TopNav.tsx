@@ -55,6 +55,7 @@ export default function TopNav() {
     style={{ width: 60, height: 60, objectFit: 'contain' }}
   />
 </div>
+
               <span className="font-extrabold text-lg tracking-tight" style={{ color: '#1A3C6E' }}>PayMind</span>
             </Link>
 

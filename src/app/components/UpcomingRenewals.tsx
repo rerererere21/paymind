@@ -28,7 +28,7 @@ export default function UpcomingRenewals() {
             className={`flex items-center justify-between p-3 rounded-lg transition-all duration-150 hover:bg-muted/60 ${item?.urgent ? 'bg-amber-50 border border-amber-200' : 'bg-muted/30'}`}
           >
             <div className="flex items-center gap-3">
-              <ServiceLogo name={item?.name} color={item?.color} size={32} />
+              <ServiceLogo name={sub.name} color={sub.color} size={32} />
               <div>
                 <p className="text-sm font-600 text-foreground flex items-center gap-1.5">
                   {item?.name}

@@ -110,7 +110,7 @@ export default function AddSubscriptionPage() {
                   <input
                     id="sub-name"
                     type="text"
-                    placeholder="e.g. Netflix, Spotify, AWS"
+                    placeholder="e.g. Netflix, Spotify...etc"
                     className="input-field"
                     {...register('name', { required: 'Service name is required', minLength: { value: 2, message: 'Name must be at least 2 characters' } })}
                   />
