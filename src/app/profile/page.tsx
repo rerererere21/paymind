@@ -180,7 +180,7 @@ export default function ProfilePage() {
           <div className="space-y-3">
             {[
               { key: 'renewalAlerts' as const, label: 'Renewal Alerts', desc: 'Get notified 3 days before a subscription renews' },
-              { key: 'weeklyDigest' as const, label: 'Weekly Digest', desc: 'Summary of your subscription activity every Monday' },
+              { key: 'weeklyDigest' as const, label: 'Weekly Digest', desc: 'Summary of your subscription activity' },
               { key: 'priceChanges' as const, label: 'Price Changes', desc: 'Alert when a subscription price increases' },
               { key: 'newFeatures' as const, label: 'New Features', desc: 'Updates about new PayMind features' },
             ].map((item) => (
