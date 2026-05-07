@@ -1,47 +1,64 @@
 import React from 'react';
 
-type StatusType = 'active' | 'paused' | 'cancelled' | 'trial';
+type Status =
+  | 'active'
+  | 'paused'
+  | 'trial';
 
 interface StatusBadgeProps {
-  status: StatusType;
+  status?: Status;
   size?: 'sm' | 'md';
 }
 
-const statusConfig: Record<StatusType, { label: string; className: string; dot: string }> = {
+const statusStyles = {
   active: {
     label: 'Active',
-    className: 'bg-emerald-50 text-emerald-700',
-    dot: 'bg-emerald-500',
+    className:
+      'bg-green-100 text-green-700',
   },
+
   paused: {
     label: 'Paused',
-    className: 'bg-amber-50 text-amber-700',
-    dot: 'bg-amber-500',
+    className:
+      'bg-yellow-100 text-yellow-700',
   },
-  cancelled: {
-    label: 'Cancelled',
-    className: 'bg-red-50 text-red-600',
-    dot: 'bg-red-500',
-  },
+
   trial: {
     label: 'Trial',
-    className: 'bg-purple-50 text-purple-700',
-    dot: 'bg-purple-500',
+    className:
+      'bg-purple-100 text-purple-700',
   },
 };
 
-export default function StatusBadge({ status, size = 'md' }: StatusBadgeProps) {
-  const config = statusConfig[status];
+export default function StatusBadge({
+  status = 'active',
+  size = 'md',
+}: StatusBadgeProps) {
+
+  const config =
+    statusStyles[status] ||
+    statusStyles.active;
+
   return (
+
     <span
       className={`
-        inline-flex items-center gap-1.5 rounded-full font-600 tracking-wide
+        inline-flex items-center rounded-full font-600
         ${config.className}
-        ${size === 'sm' ? 'px-2 py-0.5 text-xs' : 'px-2.5 py-1 text-xs'}
+        ${
+          size === 'sm'
+            ? 'px-2 py-1 text-xs'
+            : 'px-3 py-1 text-sm'
+        }
       `}
     >
-      <span className={`w-1.5 h-1.5 rounded-full ${config.dot}`} />
+
+      <span className="mr-1.5 h-1.5 w-1.5 rounded-full bg-current opacity-80" />
+
       {config.label}
+
     </span>
+
   );
+
 }
